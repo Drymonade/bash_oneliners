@@ -11,3 +11,6 @@ find . ! -empty -type f -exec md5sum {} + | sort | uniq -w32 -dD
 
 # or (needs fdupes)
 fdupes -r .
+
+# best compression for vdi files
+7z a -t7z -m0=lzma -mx=5 -mfb=16 -md=512m -ms=on xxx.vdi.7z xxx.vdi
